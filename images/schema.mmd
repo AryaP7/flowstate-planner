@@ -1,0 +1,44 @@
+classDiagram
+    class User {
+        +String _id
+        +String name
+        +String email
+        +String password
+        +Date createdAt
+    }
+    
+    class Task {
+        +String _id
+        +String title
+        +String description
+        +String priorityLevel
+        +Date dueDate
+        +Boolean completed
+        +String userId
+        +String projectId
+        +Date createdAt
+        +Date updatedAt
+    }
+    
+    class Project {
+        +String _id
+        +String name
+        +String description
+        +String userId
+        +Date createdAt
+        +Date updatedAt
+    }
+    
+    class Tag {
+        +String _id
+        +String name
+        +String color
+        +String userId
+        +Date createdAt
+    }
+    
+    User "1" -- "*" Task : has
+    User "1" -- "*" Project : owns
+    User "1" -- "*" Tag : creates
+    Project "1" -- "*" Task : contains
+    Task "*" -- "*" Tag : tagged_with 

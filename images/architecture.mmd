@@ -1,0 +1,29 @@
+graph TB
+    subgraph Frontend
+        UI[React UI Components]
+        State[React Context/State]
+        Router[React Router]
+    end
+
+    subgraph Backend
+        API[Express.js API]
+        Auth[JWT Authentication]
+        Middleware[Request Middleware]
+    end
+
+    subgraph Database
+        MongoDB[(MongoDB)]
+        Collections[Collections]
+    end
+
+    UI --> Router
+    Router --> State
+    State --> API
+    API --> Auth
+    Auth --> Middleware
+    Middleware --> MongoDB
+    MongoDB --> Collections
+
+    style Frontend fill:#f9f,stroke:#333,stroke-width:2px
+    style Backend fill:#bbf,stroke:#333,stroke-width:2px
+    style Database fill:#bfb,stroke:#333,stroke-width:2px 

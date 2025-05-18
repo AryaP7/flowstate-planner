@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 221.2 83% 53.3%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 243 75% 59%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83% 53.3%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 0 0% 6%; /* #0f0f0f */
+    --foreground: 210 40% 98%;
+
+    --card: 0 0% 10%; /* #1a1a1a */
+    --card-foreground: 210 40% 98%;
+
+    --popover: 0 0% 10%; /* #1a1a1a */
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 221.2 83% 53.3%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 222 19% 20%; /* #1F2937 */
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 19% 20%; /* #1F2937 */
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 243 75% 59%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 16%; /* #2a2a2a */
+    --input: 0 0% 16%; /* #2a2a2a */
+    --ring: 224.3 76.3% 48%;
+
+    --sidebar-background: 0 0% 6%; /* #0f0f0f */
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 210 40% 98%;
+    --sidebar-primary-foreground: 222.2 47.4% 11.2%;
+    --sidebar-accent: 222 19% 20%; /* #1F2937 */
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 0 0% 16%; /* #2a2a2a */
+    --sidebar-ring: 221.2 83% 53.3%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .task-priority-low {
+    @apply border-l-4 border-task-low;
+  }
+  
+  .task-priority-medium {
+    @apply border-l-4 border-task-medium;
+  }
+  
+  .task-priority-high {
+    @apply border-l-4 border-task-high;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-md bg-card/80 border border-muted shadow-lg;
+  }
+
+  .icon-container {
+    @apply flex items-center justify-center w-9 h-9 rounded-full bg-muted text-muted-foreground;
+  }
+
+  .hover-scale {
+    @apply transition-transform hover:scale-105;
+  }
+  
+  .hover-glow {
+    @apply transition-all hover:shadow-md hover:shadow-primary/25;
+  }
+
+  .gradient-border {
+    @apply relative before:absolute before:-inset-[1px] before:bg-gradient-to-r before:from-primary/40 before:to-accent/40 before:-z-10 before:rounded-lg;
+  }
+
+  /* Custom selected day style for react-day-picker */
+  .rdp-day_selected,
+  .rdp-day--selected,
+  .DayPicker-Day--selected,
+  .rdp-day[aria-selected='true'],
+  .rdp-day[style*='background-color'],
+  .rdp-day:has([aria-selected='true']) {
+    background: transparent !important;
+    color: inherit !important;
+    box-shadow: none !important;
+    border-radius: 9999px !important;
+    opacity: 1 !important;
+  }
+
+  /* Remove all focus/active outlines and backgrounds from calendar days */
+  .rdp-day:focus,
+  .rdp-day:active,
+  .rdp-day_selected:focus,
+  .rdp-day_selected:active,
+  .rdp-day--selected:focus,
+  .rdp-day--selected:active,
+  .DayPicker-Day--selected:focus,
+  .DayPicker-Day--selected:active,
+  .rdp-day[aria-selected='true']:focus,
+  .rdp-day[aria-selected='true']:active,
+  .rdp-day[style*='background-color']:focus,
+  .rdp-day[style*='background-color']:active {
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+}
+
+

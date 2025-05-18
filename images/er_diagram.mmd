@@ -1,0 +1,40 @@
+erDiagram
+    USER {
+        string id
+        string name
+        string email
+        string password
+        date createdAt
+    }
+    
+    TASK {
+        string id
+        string title
+        string description
+        string priorityLevel
+        date dueDate
+        boolean completed
+        string userId
+        string projectId
+    }
+    
+    PROJECT {
+        string id
+        string name
+        string description
+        date createdAt
+        string userId
+    }
+    
+    TAG {
+        string id
+        string name
+        string color
+        string userId
+    }
+    
+    USER ||--o{ TASK : creates
+    USER ||--o{ PROJECT : owns
+    USER ||--o{ TAG : creates
+    PROJECT ||--o{ TASK : contains
+    TASK }o--o{ TAG : has 
